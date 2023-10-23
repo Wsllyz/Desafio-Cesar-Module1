@@ -1,13 +1,5 @@
-class Estudante:
-    def __init__(self, nome, aidi, notas=[]):
-        self.nome = nome
-        self.aidi = aidi
-        self.notas = notas
+listaEstudantes = {}
 
-    def __repr__(self):
-        print(self.nome, self.aidi, self.notas)
-
-listaEstudantes = []
 while True:
     print("Sistema de gerenciamento de registros de estudantes")
     print("---")
@@ -24,15 +16,14 @@ while True:
     match escolha:
         case "1":
             nome = input("digite o nome do estudante: ")
-            aidi = input("digite o ID do estudante: ")
             notas = input("digite as notas do estudante (separadas por vírgula): ")
-            estudante = Estudante(nome, aidi, notas.split(","))
-            listaEstudantes.append(estudante)
+            listaEstudantes[len(listaEstudantes)] = [nome, notas.split(", ")]
             
         case "2":
             print(listaEstudantes)
         case "3":
-            pass
+            idEstudante = int(input("Digite o ID do estudante: "))
+            print(listaEstudantes[idEstudante])
         case "4":
             pass
         case "5":
