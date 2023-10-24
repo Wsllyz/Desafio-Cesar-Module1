@@ -22,10 +22,25 @@ while True:
         case "2":
             print(listaEstudantes)
         case "3":
-            idEstudante = int(input("Digite o ID do estudante: "))
-            print(listaEstudantes[idEstudante])
+            try:
+                idEstudante = int(input("Digite o ID do estudante: "))
+                print(listaEstudantes[idEstudante])
+            except KeyError:
+                print("ID inválido: Este estudante não existe.")
+            except ValueError:
+                print(f"ID inválido: apenas números inteiros são aceitos como ID.")
         case "4":
-            pass
+            try:
+                acumulator = 0
+                for x in listaEstudantes.values():
+                    for y in x:
+                        if y == list(y):
+                            for z in y:
+                                z = int(z)
+                                acumulator += z
+                print(f" A média é: {acumulator / len(listaEstudantes)}")
+            except ZeroDivisionError:
+                print("Não há nenhum estudante.")
         case "5":
             pass
         case "6":
